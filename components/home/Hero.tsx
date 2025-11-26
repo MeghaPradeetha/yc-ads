@@ -2,9 +2,24 @@
 
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
+import { useState, useEffect } from 'react';
+
+const printingImages = [
+  { src: '/images/DTF.png', alt: 'DTF Printing' },
+  { src: '/images/digital.png', alt: 'Digital Printing' },
+  { src: '/images/kord.png', alt: 'Kord Printing' }
+];
 
 const Hero = () => {
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  useEffect(() => {
+    const imageTimer = setInterval(() => {
+      setCurrentImageIndex((prev) => (prev + 1) % printingImages.length);
+    }, 3000); // Change image every 3 seconds
+    return () => clearInterval(imageTimer);
+  }, []);
   return (
     <section className="relative h-screen min-h-[800px] flex items-center overflow-hidden bg-gray-900">
       {/* Background Image with Parallax-like effect */}
@@ -32,7 +47,7 @@ const Hero = () => {
             <div className="flex items-center gap-4 mb-6">
               <span className="h-1 w-12 bg-accent rounded-full"></span>
               <span className="text-accent font-bold tracking-widest uppercase text-sm">
-                Premium Apparel & Branding
+                Premium Prints & Designs
               </span>
             </div>
             
@@ -44,7 +59,7 @@ const Hero = () => {
             </h1>
             
             <p className="text-xl md:text-2xl text-gray-300 mb-10 max-w-xl leading-relaxed font-light border-l-4 border-primary pl-6">
-              From high-fashion lookbooks to custom apparel and vibrant promotional materials. We bring your brand&apos;s aesthetic to life.
+              The Solution to your Printing Needs.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-6">
@@ -54,35 +69,33 @@ const Hero = () => {
               >
                 <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-red-600 to-orange-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
                 <span className="relative flex items-center">
-                  Start Your Project
-                  <ArrowRight className="ml-2 transition-transform group-hover:translate-x-1" size={20} />
+                 Contact Us
                 </span>
-              </Link>
-              <Link
-                href="/contact"
-                className="inline-flex items-center justify-center px-8 py-4 text-lg font-bold text-white transition-all duration-300 border border-white/30 rounded-full hover:bg-white hover:text-gray-900 backdrop-blur-sm"
-              >
-                View Lookbook
               </Link>
             </div>
           </motion.div>
         </div>
       </div>
 
-      {/* Floating Elements for Modern Feel */}
-      <motion.div 
-        animate={{ y: [0, -20, 0] }}
-        transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute bottom-10 right-10 z-20 hidden md:block"
-      >
-        <div className="bg-white/10 backdrop-blur-md p-6 rounded-2xl border border-white/20 max-w-xs">
-          <p className="text-white font-medium mb-2">&quot;The colors are incredibly vivid. Y C Ads nailed our summer collection launch.&quot;</p>
-          <div className="flex items-center gap-3">
-            <div className="w-8 h-8 rounded-full bg-accent"></div>
-            <span className="text-sm text-gray-300">Fashion Weekly</span>
-          </div>
-        </div>
-      </motion.div>
+      {/* Floating Animated Image Carousel */}
+      <div className="absolute bottom-20 right-10 z-20 hidden md:block w-[600px] h-[400px] flex items-end justify-end pointer-events-none">
+        <AnimatePresence mode="wait">
+          <motion.img
+            key={currentImageIndex}
+            src={printingImages[currentImageIndex].src}
+            alt={printingImages[currentImageIndex].alt}
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1, y: [0, -5, 0] }}
+            exit={{ opacity: 0, scale: 0.8 }}
+            transition={{ 
+              opacity: { duration: 0.5 },
+              scale: { duration: 0.5 },
+              y: { duration: 4, repeat: Infinity, ease: "easeInOut" }
+            }}
+            className="w-full h-auto max-h-[70vh] object-contain drop-shadow-2xl absolute bottom-0 right-0"
+          />
+        </AnimatePresence>
+      </div>
     </section>
   );
 };

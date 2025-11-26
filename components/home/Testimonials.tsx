@@ -26,8 +26,15 @@ const clients = [
   'TechFlow', 'RetailOne', 'GreenLife', 'StartUpX', 'GlobalCorp', 'NextGen'
 ];
 
+const brandLogos = [
+  { src: '/images/brands/flexicare.png', alt: 'Flexicare' },
+  { src: '/images/brands/hirdaramani.png', alt: 'Hirdaramani' },
+  { src: '/images/brands/leisure.png', alt: 'Leisure' },
+];
+
 const Testimonials = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [currentLogoIndex, setCurrentLogoIndex] = useState(0);
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -36,17 +43,37 @@ const Testimonials = () => {
     return () => clearInterval(timer);
   }, []);
 
+  useEffect(() => {
+    const logoTimer = setInterval(() => {
+      setCurrentLogoIndex((prev) => (prev + 1) % brandLogos.length);
+    }, 3000); 
+    return () => clearInterval(logoTimer);
+  }, []);
+
   return (
     <section className="py-24 bg-primary text-white overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Clients Strip */}
+        {/* Clients Strip - Animated Logo Carousel */}
         <div className="mb-20">
           <p className="text-center text-gray-400 text-sm font-semibold uppercase tracking-widest mb-8">Trusted by Industry Leaders</p>
-          <div className="flex flex-wrap justify-center gap-8 md:gap-16 opacity-50 grayscale hover:grayscale-0 transition-all duration-500">
-             {/* Placeholder Logos - using text for now as requested */}
-             {clients.map((client, i) => (
-               <div key={i} className="text-xl md:text-2xl font-bold text-white">{client}</div>
+          <div className="flex justify-center items-center gap-8 h-40">
+             {brandLogos.map((logo, index) => (
+               <motion.img
+                 key={index}
+                 src={logo.src}
+                 alt={logo.alt}
+                 animate={{
+                   scale: currentLogoIndex === index ? 1 : 0.5,
+                   opacity: currentLogoIndex === index ? 1 : 0.4,
+                 }}
+                 transition={{ 
+                   duration: 0.5,
+                   ease: "easeInOut"
+                 }}
+                 className="h-32 md:h-40 w-auto object-contain cursor-pointer"
+                 onClick={() => setCurrentLogoIndex(index)}
+               />
              ))}
           </div>
         </div>

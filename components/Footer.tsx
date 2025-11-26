@@ -12,8 +12,12 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
           {/* Company Info */}
           <div>
-            <Link href="/" className="text-2xl font-bold tracking-tighter mb-6 inline-block">
-              Y C <span className="text-accent">Ads</span>
+            <Link href="/" className="inline-block mb-6">
+              <img 
+                src="/images/logo.png" 
+                alt="Y C Ads" 
+                className="h-20 w-auto"
+              />
             </Link>
             <p className="text-gray-400 mb-6 leading-relaxed">
               Driving measurable growth through innovative media planning, creative strategy, and data-driven execution.

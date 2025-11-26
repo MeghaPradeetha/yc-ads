@@ -1,31 +1,49 @@
 'use client';
 
 import Link from 'next/link';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 20);
+    };
+    
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const toggleMenu = () => setIsOpen(!isOpen);
 
   const navLinks = [
     { name: 'Home', href: '/' },
     { name: 'About', href: '/about' },
-    { name: 'Services', href: '/#services' }, // Anchor link for homepage section
-    { name: 'Clients', href: '/#clients' },   // Anchor link
+    { name: 'Services', href: '/#services' }, 
+    { name: 'Clients', href: '/#clients' },  
     { name: 'Contact', href: '/contact' },
   ];
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md border-b border-gray-100">
+    <header className={`fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md border-b border-gray-100 transition-all duration-300 ${
+      isScrolled ? '' : 'md:pt-4'
+    }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
           <div className="flex-shrink-0 flex items-center">
-            <Link href="/" className="text-2xl font-bold text-primary tracking-tighter">
-              Y C <span className="text-accent">Ads</span>
+            <Link href="/" className="flex items-center">
+              <img 
+                src="/images/logo.png" 
+                alt="Y C Ads" 
+                className={`w-auto transition-all duration-300 h-12 ${
+                  isScrolled ? 'md:h-12' : 'md:h-32 md:mt-4'
+                }`}
+              />
             </Link>
           </div>
 
