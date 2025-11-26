@@ -57,7 +57,7 @@ export default function AboutPage() {
             <div className="flex flex-col md:flex-row gap-8 items-center">
               <div className="w-full md:w-1/2">
                 <div className="aspect-video bg-gray-200 rounded-2xl overflow-hidden">
-                   <img src="/images/man-working-printing-house-with-paper-paints.jpg" alt="Printing House" className="w-full h-full object-cover" />
+                   <img src="/images/offset-printing-process.jpg" alt="Printing House" className="w-full h-full object-cover" />
                 </div> 
               </div>
               <div className="w-full md:w-1/2">

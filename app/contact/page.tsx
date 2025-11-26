@@ -27,7 +27,7 @@ export default function ContactPage() {
                 <Phone className="text-accent" size={32} />
               </div>
               <h3 className="text-xl font-bold text-primary mb-2">Call Us</h3>
-              <p className="text-gray-600">+94 11 234 5678</p>
+              <p className="text-gray-600">+94 77 503 6000</p>
               <p className="text-gray-500 text-sm mt-1">Mon-Fri from 8am to 5pm</p>
             </div>
             
@@ -36,7 +36,7 @@ export default function ContactPage() {
                 <Mail className="text-accent" size={32} />
               </div>
               <h3 className="text-xl font-bold text-primary mb-2">Email Us</h3>
-              <p className="text-gray-600">hello@ycads.com</p>
+              <p className="text-gray-600">ycnads@gmail.com</p>
               <p className="text-gray-500 text-sm mt-1">We&apos;ll respond within 24 hours</p>
             </div>
 
@@ -45,14 +45,9 @@ export default function ContactPage() {
                 <MapPin className="text-accent" size={32} />
               </div>
               <h3 className="text-xl font-bold text-primary mb-2">Visit Us</h3>
-              <p className="text-gray-600">123 Business Avenue</p>
-              <p className="text-gray-600">Colombo 03, Sri Lanka</p>
+              <p className="text-gray-600">291/E Mohottigoda Road, Koralaima</p>
+              <p className="text-gray-600">Gonapola 12410, Sri Lanka</p>
             </div>
-          </div>
-
-          {/* Map Placeholder */}
-          <div className="w-full h-96 bg-gray-200 rounded-3xl mb-20 flex items-center justify-center">
-            <p className="text-gray-500 font-medium">Map Placeholder (Google Maps Integration)</p>
           </div>
         </div>
       </section>

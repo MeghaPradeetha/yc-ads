@@ -30,8 +30,8 @@ const CTAForm = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-3xl mx-auto bg-white rounded-3xl shadow-xl overflow-hidden">
           <div className="bg-primary py-10 px-8 text-center">
-            <h2 className="text-3xl font-bold text-white mb-2">Ready to Scale Your Business?</h2>
-            <p className="text-blue-100">Request a Free Strategy Consultation today.</p>
+            <h2 className="text-3xl font-bold text-white mb-2">Ready to Vibrant Your Business?</h2>
+            <p className="text-blue-100">Call us today.</p>
           </div>
           
           <div className="p-8 md:p-12">

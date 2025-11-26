@@ -4,8 +4,8 @@
   --background: #ffffff;
   --foreground: #1c1917; /* Warm Gray 900 */
   
-  /* Red Primary */
-  --primary: #dc2626; 
+  /* Red Primary - Muted */
+  --primary: #991b1b; 
   --primary-foreground: #ffffff;
 
   /* Yellow/Orange Accent */
@@ -14,6 +14,10 @@
 
   --muted: #f5f5f4; /* Warm Gray 100 */
   --muted-foreground: #57534e; /* Warm Gray 600 */
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 @theme {
@@ -29,4 +33,34 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+}
+
+/* View Transitions for smooth page navigation */
+@view-transition {
+  navigation: auto;
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 0.3s;
+}
+
+::view-transition-old(root) {
+  animation-name: fade-out;
+}
+
+::view-transition-new(root) {
+  animation-name: fade-in;
+}
+
+@keyframes fade-out {
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
 }

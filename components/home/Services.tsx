@@ -6,25 +6,25 @@ const services = [
     title: 'Offset Printing',
     description: 'High-volume printing for magazines, brochures, and catalogs with superior color accuracy and cost-efficiency.',
     icon: Layers,
-    imageSrc: '/images/man-working-printing-house-with-paper-paints.jpg'
+    imageSrc: '/images/offset-printing-process.jpg'
   },
   {
     title: 'Digital Printing',
     description: 'Fast turnaround for business cards, flyers, and short-run projects. Crisp quality on demand.',
     icon: Printer,
-    imageSrc: '/images/digital.jpg'
+    imageSrc: '/images/digital-printing-machine.jpg'
   },
   {
     title: 'Promotional Items',
     description: 'Custom branded mugs, pens, plate, granite, T-shirts, caps, and corporate gifts to keep your brand top-of-mind.',
     icon: Coffee,
-    imageSrc: '/images/mugs.jpg'
+    imageSrc: '/images/promotional-mugs.jpg'
   },
   {
     title: 'Label & Tag Printing',
     description: 'Custom labels and tags for packaging, shipping, and inventory management.',
     icon: Tag,
-    imageSrc: '/images/lable.jpg'
+    imageSrc: '/images/custom-labels.jpg'
   },
 ];
 

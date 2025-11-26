@@ -16,7 +16,7 @@ const Hero = () => {
       >
         <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-transparent z-10"></div>
         <img 
-          src="/images/fashion-woman-casual-hipster-summer-clothes.jpg" 
+          src="/images/hero-printing-apparel.jpg" 
           alt="Fashion Printing" 
           className="w-full h-full object-cover opacity-80"
         />

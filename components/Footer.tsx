@@ -5,7 +5,7 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-primary text-white pt-16 pb-8">
+    <footer className="bg-gradient-to-b from-black to-gray-900 text-white pt-16 pb-8">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
           {/* Company Info */}
@@ -60,10 +60,10 @@ const Footer = () => {
           <div>
             <h3 className="text-lg font-semibold mb-6">Services</h3>
             <ul className="space-y-4">
-              <li className="text-gray-400">Digital Media Buying</li>
-              <li className="text-gray-400">Creative Production</li>
-              <li className="text-gray-400">Media Planning</li>
-              <li className="text-gray-400">Performance Analytics</li>
+              <li className="text-gray-400">Digital Printing</li>
+              <li className="text-gray-400">Offset Printing</li>
+              <li className="text-gray-400">Promotional Items</li>
+              <li className="text-gray-400">Custom Solutions</li>
             </ul>
           </div>
 
@@ -73,15 +73,15 @@ const Footer = () => {
             <ul className="space-y-4">
               <li className="flex items-start">
                 <MapPin size={20} className="text-accent mr-3 mt-1 flex-shrink-0" />
-                <span className="text-gray-400">123 Business Avenue, Tech District, Colombo 03, Sri Lanka</span>
+                <span className="text-gray-400">291/E Mohottigoda Road, Koralaima, Gonapola 12410, Sri Lanka</span>
               </li>
               <li className="flex items-center">
                 <Phone size={20} className="text-accent mr-3 flex-shrink-0" />
-                <span className="text-gray-400">+94 11 234 5678</span>
+                <span className="text-gray-400">+94 77 503 6000</span>
               </li>
               <li className="flex items-center">
                 <Mail size={20} className="text-accent mr-3 flex-shrink-0" />
-                <span className="text-gray-400">hello@ycads.com</span>
+                <span className="text-gray-400">ycnads@gmail.com</span>
               </li>
             </ul>
           </div>

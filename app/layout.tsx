@@ -13,8 +13,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Y C Ads | Strategic Digital Marketing & Media Buying",
-  description: "Y C Ads is a premier advertising agency specializing in media buying, creative strategy, and performance analytics to drive measurable growth.",
+  title: "Y C Ads",
+  description: "Y C Ads is a premier advertising agency specializing in print media and promotional items to drive measurable growth.",
   keywords: ["Advertising Agency", "Media Buying", "Digital Marketing", "Creative Strategy", "Performance Analytics"],
 };
 
