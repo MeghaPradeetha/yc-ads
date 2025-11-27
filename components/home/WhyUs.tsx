@@ -1,9 +1,9 @@
 import { Clock, Zap, Award } from 'lucide-react';
 
 const stats = [
-  { label: 'Prints Delivered', value: '1M+' },
-  { label: 'Happy Clients', value: '500+' },
-  { label: 'Years Experience', value: '10+' },
+  { label: 'Prints Delivered', value: '1B+' },
+  { label: 'Happy Clients', value: '1M+' },
+  { label: 'Years Experience', value: '25+' },
 ];
 
 const features = [
