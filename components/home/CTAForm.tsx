@@ -19,10 +19,24 @@ const CTAForm = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission logic here
-    console.log('Form submitted:', formData);
-    alert('Thank you! We will be in touch shortly.');
-    setFormData({ name: '', company: '', email: '', phone: '', details: '' });
+    
+    const subject = `New Inquiry from ${formData.name}`;
+    const body = `
+Name: ${formData.name}
+Company: ${formData.company}
+Email: ${formData.email}
+Phone: ${formData.phone}
+
+Details:
+${formData.details}
+    `.trim();
+
+    const mailtoLink = `mailto:ycnads@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    
+    window.location.href = mailtoLink;
+    
+    // Optional: Reset form or show success message
+    // setFormData({ name: '', company: '', email: '', phone: '', details: '' });
   };
 
   return (
