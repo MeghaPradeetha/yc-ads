@@ -7,17 +7,17 @@ import { Quote } from 'lucide-react';
 const testimonials = [
   {
     quote: "The quality of their offset printing is unmatched. Our catalogs looked absolutely professional.",
-    author: "Sarah Jenkins",
+    author: "Sadhun Jayakody",
     title: "Marketing Director, TechFlow",
   },
   {
     quote: "Fastest turnaround in the city. They saved our event with same-day flyer printing.",
-    author: "Michael Chen",
+    author: "Sathish",
     title: "Event Manager, CityEvents",
   },
   {
     quote: "We love our branded mugs and t-shirts! The print quality has held up perfectly.",
-    author: "Emma Rodriguez",
+    author: "M.S Perera",
     title: "Founder, GreenLife",
   },
 ];
@@ -51,8 +51,9 @@ const Testimonials = () => {
   }, []);
 
   return (
-    <section className="py-24 bg-primary text-white overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="relative py-24 bg-primary text-white overflow-hidden">
+      <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-transparent z-0"></div>
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Clients Strip - Animated Logo Carousel */}
         <div className="mb-20">

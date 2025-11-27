@@ -21,7 +21,7 @@ const Hero = () => {
     return () => clearInterval(imageTimer);
   }, []);
   return (
-    <section className="relative h-screen min-h-[800px] flex items-center overflow-hidden bg-gray-900">
+    <section className="relative h-screen min-h-[800px] flex flex-col justify-center items-center md:flex-row md:items-center overflow-hidden bg-gray-900">
       {/* Background Image with Parallax-like effect */}
       <motion.div 
         initial={{ scale: 1.1 }}
@@ -33,9 +33,29 @@ const Hero = () => {
         <img 
           src="/images/hero-printing-apparel.jpg" 
           alt="Fashion Printing" 
-          className="w-full h-full object-cover opacity-80"
+          className="w-full h-full object-cover opacity-80 blur-sm"
         />
       </motion.div>
+      
+      {/* Floating Animated Image Carousel - Moved before text for mobile layout */}
+      <div className="relative z-20 block w-[250px] h-[250px] mb-8 md:absolute md:mb-0 md:bottom-20 md:right-10 md:w-[600px] md:h-[400px] flex items-end justify-end pointer-events-none">
+        <AnimatePresence mode="wait">
+          <motion.img
+            key={currentImageIndex}
+            src={printingImages[currentImageIndex].src}
+            alt={printingImages[currentImageIndex].alt}
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1, y: [0, -5, 0] }}
+            exit={{ opacity: 0, scale: 0.8 }}
+            transition={{ 
+              opacity: { duration: 0.5 },
+              scale: { duration: 0.5 },
+              y: { duration: 4, repeat: Infinity, ease: "easeInOut" }
+            }}
+            className="w-full h-auto max-h-[70vh] object-contain drop-shadow-2xl absolute bottom-0 right-0"
+          />
+        </AnimatePresence>
+      </div>
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20 w-full">
         <div className="max-w-3xl">
@@ -64,8 +84,8 @@ const Hero = () => {
             
             <div className="flex flex-col sm:flex-row gap-6">
               <Link
-                href="/#services"
-                className="group relative inline-flex items-center justify-center px-8 py-4 text-lg font-bold text-white transition-all duration-300 bg-primary rounded-full overflow-hidden hover:shadow-2xl hover:shadow-red-600/40"
+                href="/contact"
+                className="group relative inline-flex items-center justify-center px-8 py-4 text-lg font-bold text-white transition-all duration-300 bg-orange-600 rounded-full overflow-hidden hover:shadow-2xl hover:shadow-orange-600/40"
               >
                 <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-red-600 to-orange-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
                 <span className="relative flex items-center">
@@ -75,26 +95,6 @@ const Hero = () => {
             </div>
           </motion.div>
         </div>
-      </div>
-
-      {/* Floating Animated Image Carousel */}
-      <div className="absolute bottom-20 right-10 z-20 hidden md:block w-[600px] h-[400px] flex items-end justify-end pointer-events-none">
-        <AnimatePresence mode="wait">
-          <motion.img
-            key={currentImageIndex}
-            src={printingImages[currentImageIndex].src}
-            alt={printingImages[currentImageIndex].alt}
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1, y: [0, -5, 0] }}
-            exit={{ opacity: 0, scale: 0.8 }}
-            transition={{ 
-              opacity: { duration: 0.5 },
-              scale: { duration: 0.5 },
-              y: { duration: 4, repeat: Infinity, ease: "easeInOut" }
-            }}
-            className="w-full h-auto max-h-[70vh] object-contain drop-shadow-2xl absolute bottom-0 right-0"
-          />
-        </AnimatePresence>
       </div>
     </section>
   );

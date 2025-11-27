@@ -22,10 +22,9 @@ const Header = () => {
 
   const navLinks = [
     { name: 'Home', href: '/' },
-    { name: 'About', href: '/about' },
+    { name: 'About Us', href: '/about' },
     { name: 'Services', href: '/#services' }, 
-    { name: 'Clients', href: '/#clients' },  
-    { name: 'Contact', href: '/contact' },
+    { name: 'Contact Us', href: '/contact' },
   ];
 
   return (
@@ -58,12 +57,6 @@ const Header = () => {
                 {link.name}
               </Link>
             ))}
-            <Link
-              href="/contact"
-              className="bg-accent hover:bg-yellow-500 text-white px-6 py-2.5 rounded-full font-semibold transition-all shadow-lg hover:shadow-yellow-500/30"
-            >
-              Get a Print Quote
-            </Link>
           </nav>
 
           {/* Mobile Menu Button */}
@@ -98,15 +91,6 @@ const Header = () => {
                   {link.name}
                 </Link>
               ))}
-              <div className="pt-4">
-                <Link
-                  href="/contact"
-                  onClick={() => setIsOpen(false)}
-                  className="block w-full text-center bg-accent hover:bg-yellow-500 text-white px-6 py-3 rounded-full font-semibold transition-all"
-                >
-                  Get a Print Quote
-                </Link>
-              </div>
             </div>
           </motion.div>
         )}

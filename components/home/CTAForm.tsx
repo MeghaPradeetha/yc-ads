@@ -110,7 +110,7 @@ const CTAForm = () => {
                   type="submit"
                   className="inline-flex items-center justify-center px-8 py-4 text-base font-bold text-white transition-all duration-200 bg-accent rounded-full hover:bg-orange-600 hover:shadow-lg hover:shadow-orange-500/30 w-full md:w-auto"
                 >
-                  Get My Quote
+                  Contact Us
                   <Send className="ml-2 -mr-1" size={20} />
                 </button>
               </div>

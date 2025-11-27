@@ -16,6 +16,9 @@ export const metadata: Metadata = {
   title: "Y C Ads",
   description: "Y C Ads is a premier advertising agency specializing in print media and promotional items to drive measurable growth.",
   keywords: ["Advertising Agency", "Media Buying", "Digital Marketing", "Creative Strategy", "Performance Analytics"],
+  icons: {
+    icon: '/images/logo.png',
+  },
 };
 
 export default function RootLayout({
