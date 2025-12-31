@@ -1,3 +1,11 @@
+@php
+    $videos = [];
+    $files = glob(public_path('videos/*.mp4'));
+    foreach ($files as $file) {
+        $videos[] = asset('videos/' . basename($file));
+    }
+@endphp
+
 <section class="py-24 bg-gray-50 overflow-hidden">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
@@ -27,14 +35,36 @@
             </div>
 
             {{-- Video Content --}}
-            <div class="relative w-full mx-auto lg:mx-0 lg:ml-auto order-1 lg:order-2" style="max-width: 350px;">
+            <div class="relative w-full mx-auto lg:mx-0 lg:ml-auto order-1 lg:order-2" style="max-width: 350px;"
+                 x-data="{
+                    videos: {{ Js::from($videos) }},
+                    currentIndex: 0,
+                    init() {
+                        if (this.videos.length > 0) {
+                            $refs.videoPlayer.src = this.videos[0];
+                        }
+                    },
+                    playNext() {
+                        if (this.videos.length > 1) {
+                            this.currentIndex = (this.currentIndex + 1) % this.videos.length;
+                            $refs.videoPlayer.src = this.videos[this.currentIndex];
+                            $refs.videoPlayer.play();
+                        } else {
+                            $refs.videoPlayer.play(); // Replay if only one
+                        }
+                    }
+                 }">
                 {{-- Decorative Elements --}}
                 <div class="absolute -top-8 -right-8 w-40 h-40 bg-yellow-400/20 rounded-full blur-2xl filter"></div>
                 <div class="absolute -bottom-8 -left-8 w-40 h-40 bg-primary/20 rounded-full blur-2xl filter"></div>
 
                 <div class="relative rounded-[2rem] overflow-hidden shadow-2xl transform hover:scale-[1.02] transition-transform duration-500 ease-out border-4 border-white">
-                    <video class="w-full h-auto object-contain bg-gray-900" autoplay muted loop playsinline>
-                        <source src="{{ asset('videos/1.mp4') }}" type="video/mp4">
+                    <video x-ref="videoPlayer" 
+                           class="w-full h-auto object-contain bg-gray-900" 
+                           autoplay 
+                           muted 
+                           playsinline
+                           @ended="playNext()">
                         Your browser does not support the video tag.
                     </video>
                 </div>
