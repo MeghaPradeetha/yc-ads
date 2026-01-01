@@ -27,9 +27,6 @@
                 <div>
                     <a href="{{ route('contact') }}" class="inline-flex items-center px-8 py-4 bg-gray-900 text-white rounded-full font-semibold hover:bg-primary transition-colors duration-300 group">
                         Start Your Project
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                        </svg>
                     </a>
                 </div>
             </div>
